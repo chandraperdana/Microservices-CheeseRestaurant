@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Cheese.Web.Models.ProductDto>
+
+<br />
+<div class="container card border-primary p-3">
+    <div class="row pb-2">
+        <div class="col-4">
+            <h1>Products List</h1>
+        </div>
+        <div class="col-8 text-end pt-1">
+            <a asp-action="CreateProduct" class="btn btn-primary"><i class="bi bi-plus-square"></i> Create New Product</a>
+        </div>
+    </div>
+    <table class="table table-hover">
+        <thead>
+            <tr class="table-dark">
+                <th>Name</th>
+                <th>Category Name</th>
+                <th>Price</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.CategoryName</td>
+                    <td align="right">@((item.Price).ToString("c"))</td>
+                    <td align="center">
+                        <a asp-action="EditProduct" asp-route-productId="@item.ProductId" class="btn btn-info">
+                            <i class="bi bi-pencil-square"></i>
+                        </a>
+                        <a asp-action="DeleteProduct" asp-route-productId="@item.ProductId" class="btn btn-danger">
+                            <i class="bi bi-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

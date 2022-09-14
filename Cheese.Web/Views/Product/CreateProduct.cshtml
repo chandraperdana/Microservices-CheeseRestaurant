@@ -1,0 +1,50 @@
+﻿@model Cheese.Web.Models.ProductDto
+
+
+<form asp-action="CreateProduct">
+    <br />
+    <div class="container card border-primary p-3">
+        <h1>Create Product</h1>
+
+        <div class="row">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="form-label mt-4"></label>
+                <input asp-for="Name" class="form-control" placeholder="Enter Name">
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CategoryName" class="form-label mt-4"></label>
+                <input asp-for="CategoryName" class="form-control" placeholder="Enter Category Name">
+                <span asp-validation-for="CategoryName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="form-label mt-4"></label>
+                <textarea asp-for="Description" class="form-control" placeholder="Enter Description" rows="5"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImageUrl" class="form-label mt-4"></label>
+                <input asp-for="ImageUrl" class="form-control" placeholder="Enter ImageUrl">
+                <span asp-validation-for="ImageUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="form-label mt-4"></label>
+                <input asp-for="Price" class="form-control" placeholder="Enter Name">
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="col-5 offset-1 mt-4">
+                <a asp-action="ProductIndex" class="btn btn-primary form-control">&laquo; Back to List</a>
+            </div>
+            <div class="col-5 mt-4">
+                <button type="submit" class="btn btn-secondary form-control">Create Product</button>
+            </div>
+        </div>
+        <div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
