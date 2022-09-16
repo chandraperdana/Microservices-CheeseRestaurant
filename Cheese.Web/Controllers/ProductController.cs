@@ -83,7 +83,7 @@ namespace Cheese.Web.Controllers
             return View(model);
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteProduct(int productId)
         {
             var accessToken = await HttpContext.GetTokenAsync("access_token");
@@ -96,7 +96,7 @@ namespace Cheese.Web.Controllers
             return NotFound();
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteProduct(ProductDto model)
